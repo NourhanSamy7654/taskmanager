@@ -1,0 +1,284 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}TaskManager Admin{% endblock %}
+
+{% block branding %}
+<div class="top-brand">
+
+    <div class="logo-circle">
+        📝
+    </div>
+
+    <div class="brand-text">
+        <h1>TaskManager</h1>
+        <span>Organize your work easily</span>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#7C83FD;
+    --secondary:#96BAFF;
+    --pink:#FFB2E6;
+    --bg:#F7F9FF;
+    --card:#FFFFFF;
+    --text:#374151;
+    --border:#E8ECF7;
+}
+
+/* ================= BODY ================= */
+
+body{
+    font-family: 'Nunito', sans-serif !important;
+    background: linear-gradient(to bottom right,#f7f9ff,#eef4ff) !important;
+    color: var(--text);
+}
+
+/* ================= HEADER ================= */
+
+#header{
+    background: linear-gradient(135deg,#7C83FD,#96BAFF) !important;
+    height: 85px;
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(124,131,253,.25);
+}
+
+/* ================= BRAND ================= */
+
+.top-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-circle{
+    width:55px;
+    height:55px;
+    border-radius:18px;
+    background: rgba(255,255,255,.25);
+    backdrop-filter: blur(8px);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+}
+
+.brand-text h1{
+    margin:0;
+    color:white;
+    font-size:26px;
+    font-weight:800;
+    line-height:1;
+}
+
+.brand-text span{
+    color:#eef2ff;
+    font-size:13px;
+}
+
+/* ================= USER TOOLS ================= */
+
+#user-tools,
+#user-tools a{
+    color:white !important;
+    font-weight:700;
+}
+
+/* ================= CONTENT ================= */
+
+#content{
+    padding:30px !important;
+}
+
+/* ================= MODULE CARDS ================= */
+
+.module{
+    background: var(--card) !important;
+    border:none !important;
+    border-radius:24px !important;
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.05),
+    0 2px 8px rgba(0,0,0,.03) !important;
+
+    transition:.3s ease;
+    margin-bottom:28px !important;
+}
+
+.module:hover{
+    transform: translateY(-4px);
+}
+
+/* ================= TITLES ================= */
+
+.module h2,
+.module caption{
+
+    background:
+    linear-gradient(
+    135deg,
+    #7C83FD,
+    #96BAFF
+    ) !important;
+
+    color:white !important;
+
+    padding:18px 22px !important;
+
+    font-size:17px !important;
+    font-weight:800 !important;
+
+    border:none !important;
+}
+
+/* ================= TABLES ================= */
+
+#changelist table{
+    border-radius:18px;
+    overflow:hidden;
+}
+
+#changelist table thead th{
+    background:#F4F7FF !important;
+    padding:15px !important;
+    color:#4B5563 !important;
+    border:none !important;
+}
+
+#changelist table tbody tr{
+    transition:.2s ease;
+}
+
+#changelist table tbody tr:hover{
+    background:#F8FAFF !important;
+}
+
+/* ================= BUTTONS ================= */
+
+.button,
+input[type=submit],
+input[type=button],
+.submit-row input,
+.button.default{
+
+    background: linear-gradient(135deg,#7C83FD,#96BAFF) !important;
+
+    border:none !important;
+    color:white !important;
+
+    border-radius:14px !important;
+
+    padding:11px 18px !important;
+
+    font-weight:700 !important;
+
+    box-shadow:0 8px 18px rgba(124,131,253,.25);
+
+    transition:.3s ease;
+}
+
+.button:hover,
+input[type=submit]:hover{
+
+    transform: translateY(-2px);
+
+    box-shadow:0 12px 22px rgba(124,131,253,.35);
+}
+
+/* ================= FORMS ================= */
+
+input,
+textarea,
+select{
+
+    border:2px solid var(--border) !important;
+
+    border-radius:14px !important;
+
+    padding:11px !important;
+
+    background:#FCFDFF !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:#96BAFF !important;
+
+    box-shadow:
+    0 0 0 4px rgba(150,186,255,.2) !important;
+}
+
+/* ================= BREADCRUMBS ================= */
+
+div.breadcrumbs{
+
+    background:white !important;
+
+    border:none !important;
+
+    border-radius:18px;
+
+    padding:15px 20px !important;
+
+    margin-bottom:20px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.04);
+}
+
+/* ================= LINKS ================= */
+
+a{
+    color:#6D72F6 !important;
+}
+
+a:hover{
+    color:#4F46E5 !important;
+}
+
+/* ================= DASHBOARD APPS ================= */
+
+.app-tasks .section:before{
+    content:"✨ ";
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    #header{
+        height:auto;
+        padding:18px;
+    }
+
+    .brand-text h1{
+        font-size:20px;
+    }
+
+    #content{
+        padding:18px !important;
+    }
+
+    .module{
+        border-radius:18px !important;
+    }
+}
+
+</style>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

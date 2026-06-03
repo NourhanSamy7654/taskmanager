@@ -1,0 +1,83 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5">
+
+            <div class="card shadow-lg border-0 rounded-4 p-4 bg-dark text-light">
+
+                <div class="text-center mb-4">
+
+                    <i class="bi bi-person-plus display-5 text-info"></i>
+
+                    <h2 class="fw-bold mt-2">
+                        Create Account
+                    </h2>
+
+                    <p class="text-secondary">
+                        Join us and start managing your tasks
+                    </p>
+
+                </div>
+
+                <form method="post">
+
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Username
+                        </label>
+
+                        {{ form.username }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Password
+                        </label>
+
+                        {{ form.password1 }}
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">
+                            Confirm Password
+                        </label>
+
+                        {{ form.password2 }}
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-info w-100 rounded-pill py-2 fw-semibold">
+                        Register
+                    </button>
+
+                </form>
+
+                <div class="text-center mt-4">
+
+                    <span class="text-secondary">
+                        Already have an account?
+                    </span>
+
+                    <a href="{% url 'login' %}"
+                       class="text-info text-decoration-none fw-semibold">
+                        Login
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
