@@ -1,7 +1,3 @@
-تمام — ده نسخة **GitHub/CV ready** احترافية جدًا لكن لسه مختصرة ومش فيها حشو 👇
-
----
-
 # 🗂️ Task Manager
 
 A Django-based task management system with authentication and REST API support.
