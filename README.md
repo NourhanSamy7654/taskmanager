@@ -3,11 +3,11 @@
 A Django-based task management system with authentication and REST API support.
 
 ---
-### Dashboard
+### Swagger API Documentation
 
 ![Dashboard And All Tasks ](/taskManager/screen/s2.png)
 
-### Swagger API Documentation
+### Tasks
 
 ![Swagger](/taskManager/screen/s1.png)
 
